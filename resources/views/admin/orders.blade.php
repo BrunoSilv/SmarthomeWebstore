@@ -11,7 +11,7 @@
                 <form action="{{route('toggle.deliver', $order->id)}}" method="post" class="pull-right">
                     {{csrf_field()}}
                     <label for="delivered">Delivered</label>
-                    <input type="checkbox" value="1" name="delivered"> {{$order->delivered==1?"checked":""}}
+                    <input type="checkbox" value="1" name="delivered"  {{$order->delivered==1?"checked":"" }}>
                     <input type="submit" value="Submit">
                 </form>
                 

@@ -40,7 +40,7 @@ class CheckoutController extends Controller
         }
       //Create Order
         Order::createOrder();
-
-       return "Order completed";
+        Cart::destroy();
+       return redirect('/');
     }
 }

@@ -56,3 +56,20 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+## This Project was by made Bruno Silva and Diogo Soares
+
+Too use it simply
+
+Clone repository
+	git clone https://github.com/brunsilva/smarthome_webstore.git
+
+Install the composer dependencies
+	composer install
+
+Set application key
+	php artisan key:generate
+  
+Configure your database in .env
+And Migrate! 
+  php artisan migrate

@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## This Project was by made Bruno Silva and Diogo Soares
+## This Project was made by Bruno Silva and Diogo Soares
 
 Too use it simply
 

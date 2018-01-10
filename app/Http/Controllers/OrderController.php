@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\Mail\OrderShipped;
 use App\Order;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -20,7 +21,14 @@ class OrderController extends Controller
         public function toggleDeliver(Request $request,$orderId)
         {
             $order=Order::find($orderId);
-            $order->delivered=$request->delivered;
+            if($request->has('delivered'))
+            {
+
+                Mail::to($order->user)->send(new OrderShipped($order));
+                $order->delivered=$request->delivered;
+            }else{
+                $order->delivered="0";
+            }
             $order->save();
 
             return back();

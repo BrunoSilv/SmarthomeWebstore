@@ -13,7 +13,7 @@ Too use it simply
 
 Clone this repository
 
-	git clone https://github.com/webdevmatics/ecom.git
+	git clone https://github.com/BrunoSilv/smarthome_webstore.git
 
 Install the composer dependencies
 

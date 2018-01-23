@@ -279,6 +279,7 @@
                         <th>Name</th>
                         <th>Description</th>
                         <th>Category</th>
+                        <th>Stock</th>
                         <th>Price</th>
                     </tr>
                     </thead>
@@ -294,6 +295,7 @@
                         <td>{{$product->name}}</td>
                         <td>{{$product->description}}</td>
                         <td>{{count($product->category)?$product->category->name:"N/A"}}</td>
+                        <td>{{$product->stock}}</td>
                         <td>{{$product->price}}€</td>
                         <td>
                             <a href="#editProductModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
@@ -331,6 +333,11 @@
                             {{Form::label('price','Price')}}
                             {{Form::text('price',null, array('class' => 'form-control'))}}
                         </div>
+
+                            <div class="form-group">
+                                {{Form::label('stock','Stock')}}
+                                {{Form::text('stock',null, array('class' => 'form-control'))}}
+                            </div>
 
                         <div class="form-group">
                             {{Form::label('category-id','Category')}}

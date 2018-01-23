@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="row">
+    <div class="row"><div class="small-6 small-centered columns">
     <h3>Shipping Info</h3>
 
     {!! Form::open(['route' => 'address.store', 'method' => 'post']) !!}
@@ -33,4 +33,5 @@
     {{ Form::submit('Proceed to Payment', array('class' => 'button success')) }}
     </div>
     {!! Form::close() !!}
+    </div>
     @endsection

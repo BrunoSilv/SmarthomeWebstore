@@ -32,6 +32,8 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.orders.shipped');
+        return $this->markdown('emails.orders.shipped')->with([
+            'total' => $this->order->total,
+        ]);;
     }
 }

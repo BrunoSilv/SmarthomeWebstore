@@ -3,7 +3,6 @@
 @section('title', 'Products')
 @section('content')
 <!-- products listing -->
-<!-- Latest Products -->
 <div class="row">
     @forelse($products as $product)
         <div class="small-3 columns">
@@ -28,9 +27,12 @@
                     {{$product->description}}
                 </p>
             </div>
+
         </div>
         @empty
         <h3>No products</h3>
         @endforelse
+        {{$products->links()}}
 </div>
+
     @endsection

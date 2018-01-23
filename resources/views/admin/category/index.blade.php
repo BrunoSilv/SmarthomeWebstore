@@ -40,8 +40,6 @@
                         <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </div>
-
-                {{Form::submit('Create',array('class' => 'btn btn-default'))}}
                 {!! Form::close() !!}
 
 

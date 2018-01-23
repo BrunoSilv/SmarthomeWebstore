@@ -1,47 +1,62 @@
 @extends('layouts.main')
 
 @section('content')
+    <div class="row">
+        <h3>Cart Items</h3>
 
-    <h3>Cart Items</h3>
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($cartItems as $cartItem)
+
+        <table class="table table-hover">
+            <thead>
             <tr>
-                <td>{{$cartItem->name}}</td>
-                <td>
-                    {!! Form::open(['route' => ['cart.update', $cartItem->rowId], 'method' => 'PUT']) !!}
-                    <input name="qty" type="text" value="{{$cartItem->qty}}">
-                    <input type="submit" class="btn btn-sm btn-default" value="OK">
-                    {!! Form::close() !!}
-                </td>
-                <td>{{$cartItem->price}}€</td>
-                <td>
-                    <form action="{{route('cart.destroy', $cartItem->rowId)}}" method="POST">
-                        {{csrf_field()}}
-                        {{method_field('DELETE')}}
-                        <input class="btn btn-sm btn-danger" type="submit" value="Delete">
-                    </form>
-                </td>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Action</th>
             </tr>
-        @endforeach
-        <tr>
-            <td></td>
-            <td>Items:{{Cart::count()}}</td>
-            <td>
-                Tax: ${{Cart::tax()}}<br>
-                Total: {{Cart::total()}}€</td>
-            <td></td>
-        </tr>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            @foreach($cartItems as $cartItem)
+                <tr>
+                    <td>{{$cartItem->name}}</td>
+                    <td>{{$cartItem->price}}</td>
+                    <td width="50px">
+                        {!! Form::open(['route' => ['cart.update',$cartItem->rowId], 'method' => 'PUT']) !!}
+                        <input name="qty" type="text" value="{{$cartItem->qty}}">
 
-    <a href="{{route('checkout.shipping')}}" class="button">Checkout</a>
-    @endsection
+
+                    </td>
+                    <td>
+                        <input style="float: left"  type="submit" class="button success small" value="Update">
+                        {!! Form::close() !!}
+
+                        <form action="{{route('cart.destroy',$cartItem->rowId)}}"  method="POST">
+                            {{csrf_field()}}
+                            {{method_field('DELETE')}}
+                            <input class="button small alert" type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+
+            <tr>
+                <td>
+                    Tax: ${{Cart::tax()}} <br>
+                    Sub Total: $ {{Cart::subtotal()}} <br>
+                    Grand Total: $ {{Cart::total()}}
+                </td>
+                <td>Items: {{Cart::count()}}
+
+                </td>
+                <td></td>
+                <td></td>
+
+            </tr>
+            </tbody>
+        </table>
+
+        <a href="{{route('checkout.shipping')}}" class="button">Checkout</a>
+    </div>
+
+
+
+@endsection

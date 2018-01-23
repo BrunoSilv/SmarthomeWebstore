@@ -37,6 +37,19 @@
                     Login
                 </a>
             </li>
+            @if (Auth::check())
+                <li>
+                    <a href="{{url('admin')}}">
+                        Account
+                    </a>
+                </li>
+            @else
+                <li>
+                    <a href="{{url('register')}}">
+                        Register
+                    </a>
+                </li>
+            @endif
             <li>
                 <a href="{{route('cart.index')}}">
                     <i class="fa fa-shopping-cart fa-2x" aria-hidden="true">
